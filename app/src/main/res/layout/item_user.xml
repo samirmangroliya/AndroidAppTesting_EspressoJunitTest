@@ -10,18 +10,24 @@
             type="com.samir.androidapptesting.data.models.User" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <ImageView
+            android:id="@+id/imgprofile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp" />
 
         <TextView
             android:id="@+id/tvname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imgprofile"
             android:text="@{user.firstName + ` ` + user.lastName}"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -29,9 +35,22 @@
             tools:text="Name::" />
 
         <TextView
+            android:id="@+id/tvgender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvname"
+            android:layout_toEndOf="@id/imgprofile"
+            android:text="@{user.gender}"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Name::" />
+
+        <TextView
             android:id="@+id/tvemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tvgender"
+            android:layout_toEndOf="@id/imgprofile"
             android:text="@{user.email}"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -41,6 +60,8 @@
             android:id="@+id/tvphone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tvemail"
+            android:layout_toEndOf="@id/imgprofile"
             android:text="@{user.phone}"
             android:textColor="@color/black"
             android:textSize="14sp"
@@ -49,7 +70,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@id/tvphone"
             android:layout_marginTop="8dp"
             android:background="@color/black" />
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

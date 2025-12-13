@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.samir.androidapptesting.data.models.User
 import com.samir.androidapptesting.databinding.ItemUserBinding
+import com.samir.androidapptesting.presentation.extensions.loadRounded
 
 class UserAdapter(val data: List<User?>?) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
     override fun onCreateViewHolder(
@@ -27,6 +28,7 @@ class UserAdapter(val data: List<User?>?) : RecyclerView.Adapter<UserAdapter.Use
     class UserViewHolder(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User?) {
             binding.user = user
+            binding.imgprofile.loadRounded(user?.image)
         }
     }
 }
